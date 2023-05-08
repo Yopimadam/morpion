@@ -19,8 +19,13 @@ while(tourdejeu<=9)
         printf("Mauvaise entrée: entrez un chiffre entre 1 et 9 inclus\n");
         continue;
     }
+
+    if ((i < 9 && c[i] != 0) || ( i == 9 && sineuf != 0))
+    {
+        printf("Case déjà jouée\n");
+        continue;
+    }
     
-    printf("Vous avez choisi la case %d \n ",i);
     if (i == 9)
         {
         if (tourdejeu %2 == 0)
