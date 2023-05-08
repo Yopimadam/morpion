@@ -9,26 +9,33 @@ int main()
 {
 while(tourdejeu<=9)
     {
-    printf(" %d %d %d \n %d %d %d \n %d %d %d \n vous avez choisi la case %d \n ",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3],i);
+    printf(" %d %d %d \n %d %d %d \n %d %d %d \n",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3]);
     printf("quelle case voulez-vous jouer?");
      i=0;
     scanf("%d",&i);
+    if (i < 1 || i > 9)
+    {
+        printf("Mauvaise entrée: entrez un chiffre entre 1 et 9 inclus\n");
+        continue;
+    }
+
+    if ((i < 9 && c[i] != 0) || ( i == 9 && sineuf != 0))
+    {
+        printf("Case déjà jouée\n");
+        continue;
+    }
+    
+    printf("Vous avez choisi la case %d \n",i);
     if (i == 9)
         {
         if (tourdejeu %2 == 0)
             {
             sineuf =1;
-            tourdejeu++;
             }
         else
             {
             sineuf =2;
-            tourdejeu++;
             }
-        }
-    if (c[i]=0)
-        {
-        tourdejeu++;
         }
      if (tourdejeu %2 == 0)
             {
@@ -42,14 +49,14 @@ while(tourdejeu<=9)
         {
         tourdejeu=9;
         quigagne = 1;
-        printf(" %d %d %d \n %d %d %d \n %d %d %d \n vous avez choisi la case %d \n ",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3],i);
+        printf(" %d %d %d \n %d %d %d \n %d %d %d \n vous avez choisi la case %d \n",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3],i);
         printf("\n\n\n\n\n\n le joueur%d a gagné\n",quigagne);
         }
     if(2==c[1]&&2==c[2]&&2==c[3]  || 2==c[4]&&2==c[5]&&2==c[6]  || 2==c[7] &&2== c[8] &&2== sineuf||2==c[1]&&2==c[4]&&2==c[7]  || 2==c[2]&&2==c[5]&&2==c[8]  || 2==c[3] &&2== c[6] &&2== sineuf||2==c[1]&&2==c[5]&&2==sineuf  || 2==c[3] &&2== c[5] &&2== c[7])
         {
         quigagne = 2;
         tourdejeu=9;
-        printf(" %d %d %d \n %d %d %d \n %d %d %d \n vous avez choisi la case %d \n ",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3],i);
+        printf(" %d %d %d \n %d %d %d \n %d %d %d \n vous avez choisi la case %d \n",c[7],c[8],sineuf,c[4],c[5],c[6],c[1],c[2],c[3],i);
         printf("\n\n\n\n\n\n le joueur %d a gagné\n",quigagne);
         }
         if(quigagne = 0)
